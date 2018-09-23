@@ -1,0 +1,1 @@
+insert into staff (username,password,email,role) values ('admin','admin','admin@supershop.com','Manager');

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Revenue Report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="403ef5ad-ffca-4941-8837-1be6f8e5a328">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from product order by id;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="unit_price" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="discount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sale_price" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stock" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="unit_price_grand" class="java.lang.Number" resetType="Group" resetGroup="Grand_Total" calculation="Sum">
+		<variableExpression><![CDATA[$F{unit_price}]]></variableExpression>
+	</variable>
+	<variable name="discount_grand" class="java.lang.Number" resetType="Group" resetGroup="Grand_Total" calculation="Sum">
+		<variableExpression><![CDATA[$F{discount}]]></variableExpression>
+	</variable>
+	<variable name="sale_price_grand" class="java.lang.Number" resetType="Group" resetGroup="Grand_Total" calculation="Sum">
+		<variableExpression><![CDATA[$F{sale_price}]]></variableExpression>
+	</variable>
+	<variable name="stock_grand" class="java.lang.Number" resetType="Group" resetGroup="Grand_Total" calculation="Sum">
+		<variableExpression><![CDATA[$F{stock}]]></variableExpression>
+	</variable>
+	<group name="Grand_Total">
+		<groupExpression><![CDATA[""]]></groupExpression>
+		<groupFooter>
+			<band height="21">
+				<textField>
+					<reportElement x="237" y="0" width="79" height="20" uuid="82dd4452-4f14-4c54-8e89-9138daea5193"/>
+					<box leftPadding="30">
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textFieldExpression><![CDATA[$V{unit_price_grand}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="158" y="0" width="79" height="20" uuid="98297e45-358b-43ce-a9b8-ce3c3e405001"/>
+					<box leftPadding="30">
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="316" y="0" width="79" height="20" uuid="c912ebd4-9bc8-48f8-b44f-7fd5bc9008ed"/>
+					<box leftPadding="30">
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textFieldExpression><![CDATA[$V{discount_grand}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="395" y="0" width="79" height="20" uuid="5e37cb87-175a-412a-9992-deddaf18a54e"/>
+					<box leftPadding="30">
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textFieldExpression><![CDATA[$V{sale_price_grand}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="474" y="0" width="81" height="20" uuid="e34697f1-eb5a-4877-9c3c-ce15740da92c"/>
+					<box leftPadding="30">
+						<pen lineWidth="0.75"/>
+						<topPen lineWidth="0.75"/>
+						<leftPen lineWidth="0.75"/>
+						<bottomPen lineWidth="0.75"/>
+						<rightPen lineWidth="0.75"/>
+					</box>
+					<textFieldExpression><![CDATA[$V{stock_grand}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="36" backcolor="#8EC4EF" uuid="8c209207-7f27-46d0-95e3-e43c4b77b484"/>
+				<box leftPadding="60"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[       			SUPER SHOP]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="35" forecolor="#F5EBEB" backcolor="#2E1D1D" uuid="facae6a6-bfa4-47b0-8933-8cfaed5eae52"/>
+				<box leftPadding="100"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[				Revenue Report]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="03bdf286-0ad9-48d5-8a09-0316c0a0b55b"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[SL no.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="79" y="0" width="79" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="7da4197c-ff9b-4016-8744-c14ca6e488c0"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[Product Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="158" y="0" width="79" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="145a0c68-e59a-479d-9d2a-c7867f591f37"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[Product name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="33bf19c5-045b-4c90-ac5a-49820696e6a5"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[Unit Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="f4dec6ec-b38f-45b4-adea-a5630025566c"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="f6d3538b-65d9-443d-9ec4-0b879b4fa8fb"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[Sale Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="474" y="0" width="81" height="20" forecolor="#FCF5F5" backcolor="#4D8E4E" uuid="04acb468-78a9-4408-acd2-e3cc042346b4"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<text><![CDATA[Stock]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20" uuid="f06c323b-a403-468a-93ed-ddf0b0271e48"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="79" height="20" uuid="6eda2379-0fcd-4bf9-ac06-0c11ff507ecf"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{product_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="79" height="20" uuid="b1e2553e-ee6f-455d-b66b-70d58ce4ca63"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="79" height="20" uuid="6075937c-9518-4d93-9fd5-0c17479490d3"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{unit_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="79" height="20" uuid="b77271d4-58b1-4103-8597-81ffa24d103c"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="79" height="20" uuid="f23544b7-6008-48ca-af0f-4749b38bc78c"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{sale_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="0" width="81" height="20" uuid="84794c35-d6e1-4b1b-a927-ac9fc7be7276"/>
+				<box leftPadding="40">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{stock}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="261" height="20" uuid="d0c6026c-ad85-41f0-86b3-e7ce593f7866"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Revenue Amount: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="261" y="0" width="292" height="20" uuid="8e9421aa-d729-445b-9a33-b31936893f7b"/>
+				<box leftPadding="20">
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sale_price} - $F{unit_price}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="100" height="20" uuid="cda66439-7d28-41df-ac75-b5d182295146"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="532" y="0" width="21" height="20" uuid="0fd828d2-e815-4662-8be6-496b91372842"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
