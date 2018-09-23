@@ -19,4 +19,4 @@ I also write to create all table code for mysql. For this, you should install on
 
 Any where in the project, if you don't understand the code, please knock me in facebook message or what's app message.
 
-Thanks for give me an opportunity. 
+
