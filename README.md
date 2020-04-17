@@ -1,8 +1,11 @@
 # SuperShop
+This is a desktop application based on warehouse.
 
-First of all, i want to say that, if you find or face any problem then please notify me without any hesitation.
-In this project have a entry point and a end point. So here entry point is, Main.java and end point is when you want to 
-close the application.
+First of all, if you find or face any problem then please notify me without any hesitation.
+
+What should do, if you want to use this application.
+
+Main.java is entry point of the application. So that, run the Main.java.
 
 Here, only one query is needed, which is an admin. You get the query in src folder, named is essential_query.sql
 
@@ -16,7 +19,3 @@ If you don't know how to add jar into classpath, right click on the jar -> Build
 Or right click on your project, properties -> Java Build Path -> Library -> Add external jar.
 
 I also write to create all table code for mysql. For this, you should install one of the mysql server 5.5 to 5.7 version.
-
-Any where in the project, if you don't understand the code, please knock me in facebook message or what's app message.
-
-
